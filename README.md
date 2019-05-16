@@ -1,7 +1,7 @@
-Ansible Role: tamay.yumcron
+Ansible Role: tamay.yum-cron
 =========
 
-This role installs and configures yumcron.
+This role installs and configures yum-cron.
 
 Requirements
 ------------
