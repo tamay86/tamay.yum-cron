@@ -1,0 +1,25 @@
+---
+# tasks file for tamay.yum-cron
+
+- name: "Install yum-cron"
+  package:
+    state: present
+    name: yum-cron
+
+- name: "Copy yum-cron config files"
+  template:
+    src: "{{ item }}.j2"
+    dest: /etc/yum/{{ item }}
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - yum-cron.conf
+    - yum-cron-hourly.conf
+  notify: restart_yum_cron
+
+- name: "Start yum-cron"
+  service:
+    name: yum-cron
+    state: started
+    enabled: yes

@@ -1,0 +1,8 @@
+---
+# handlers file for tamay.yum-cron
+
+- name: "Restart yum-cron"
+  service:
+    name: yum-cron
+    state: restarted
+  listen: restart_yum_cron
